@@ -31,7 +31,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(@LayoutRes lay
 
     protected open fun setupSubscribe() {}
 
-    protected fun <T> LiveData<Resource<T>?>.subscribe(
+    protected fun <T> LiveData<Resource<T>>.subscribe(
         onSuccess: (result: T) -> Unit,
         onError: (message: String) -> Unit
     ) {
@@ -45,7 +45,6 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(@LayoutRes lay
                     is Resource.Success -> {
                         it.data?.let { data -> onSuccess(data) }
                     }
-                    null -> TODO()
                 }
             }
         }
