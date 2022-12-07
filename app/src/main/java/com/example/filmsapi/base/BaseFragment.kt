@@ -45,7 +45,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(@LayoutRes lay
                     is Resource.Success -> {
                         it.data?.let { data -> onSuccess(data) }
                     }
-                    else -> {}
+                    null -> TODO()
                 }
             }
         }
